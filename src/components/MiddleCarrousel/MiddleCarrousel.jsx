@@ -55,9 +55,9 @@ export const Carrousel2 = () => {
             src={activeStep === 0 ? Rooms : Hotel}
             alt="Hotel"
             loading="lazy"
+            height="auto"
             width="448px"
-            height="286px"
-            style={{ borderRadius: "10px" }}
+            style={{ borderRadius: "10px", maxWidth: "100%" }}
           />
           <Box
             margin="20px 56px"
