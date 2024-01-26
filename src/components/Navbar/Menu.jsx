@@ -1,31 +1,40 @@
-import { useState } from "react";
-import {
-  Box,
-  Button,
-  Container,
-  Drawer,
-  IconButton,
-  Typography,
-} from "@mui/material";
+import { useState, useEffect } from "react";
+import { Box, Button, Drawer, IconButton, Typography } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import PersonIcon from "@mui/icons-material/Person";
 
 export const Menu = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <Container
+    <Box
+      component="div"
       sx={{
-        display: "flex",
-        height: "45px",
-        alignItems: "center",
-        justifyContent: "space-between",
-        paddingTop: "10px",
+        backgroundColor: isScrolled ? "#808080" : "transparent",
+        transition: "background-color 1s ease-in-out",
+        zIndex: "2",
       }}
+      position="fixed"
+      display="flex"
+      justifyContent="space-around"
+      width="100%"
     >
       <Box>
         <Typography variant="h4" color="#fff" sx={{ fontWeight: "bold" }}>
@@ -112,6 +121,6 @@ export const Menu = () => {
           <PersonIcon />
         </Box>
       </Button>
-    </Container>
+    </Box>
   );
 };
