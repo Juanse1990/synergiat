@@ -1,8 +1,9 @@
-import { Button, Container, Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
+import { Box } from "@mui/system";
 
 export const Title = () => {
   return (
-    <Container
+    <Box
       sx={{
         display: "flex",
         alignItems: "center",
@@ -12,20 +13,29 @@ export const Title = () => {
         gap: "24px",
       }}
     >
-      <Typography variant="h3" color="#fff" sx={{ fontWeight: "bold" }}>
+      <Typography
+        display="flex"
+        fontFamily="Jost"
+        fontWeight={900}
+        variant="h3"
+        color="primary"
+        sx={{
+          fontSize: { xs: "2rem", md: "4rem" },
+        }}
+      >
         Nombre del Hotel
       </Typography>
       <Button
+        fontFamily="Jost"
+        variant="contained"
+        size="large"
         sx={{
-          width: "420px",
-          height: "40px",
-          background: "#fff",
-          color: "#AE9672",
-          "&:hover": { background: "#AE9672", color: "#fff" },
+          backgroundColor: (theme) => theme.palette.primary.main,
+          color: (theme) => theme.palette.primary.brown,
         }}
       >
         Hacer Reserva
       </Button>
-    </Container>
+    </Box>
   );
 };

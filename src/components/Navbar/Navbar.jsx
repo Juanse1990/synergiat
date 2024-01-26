@@ -9,7 +9,7 @@ export const Navbar = () => {
       sx={{
         width: "100%",
         height: "376px",
-        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)),url(${Hotel})`,
+        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0.025)),url(${Hotel})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
